@@ -14,26 +14,18 @@ Zipwhip uses Java internally, but we are accessible by all languages.
 Recently, we began creating a Python API to access Zipwhip. We use it quite
 a bit in our Arduino projects around the office.
 
-Want a few extra tools programmed for you, we offer our Java api publicly,
-used by all of our Java projects. As time goes on we will be releasing
-additions to our Python Library. We will be providing Parsers, Data Store
-implementation, and Zipwhip specific data objects.
+To begin we created a wrapper of all of the basic web calls available. Even
+with the web calls provided in the Python-Api, you can turn an already powerful
+medium into something even more.
 
-Once you know how to send a message, save some contacts and conversations
-your going to want to start receiving messages from your
-loyal coworkers/consumers.
+The sessionKey provided after a log in is a representation of the logged in
+user. sessionKeys do not expire, this means if you are a business with a
+number of customers using the Zipwhip text enabled landlines/toll-free numbers
+then you only need to track the phone number to sessionKey relationship.
 
-We offer a few different ways for you to receive messages.
-1. You can bind into our socket server and receive messages, contact, and
-     conversation changes.
-2. Short Polling, you choose the interval only query when it is important
-     to you.
-3. Webhooks, have a service hosted already and want to augment it with text.
-     We can get you set with Webhooks, our server will automatically POST to
-     your server with the changes to your account.
-
-If at any point you have a question about the API provided please reach out to
-api@zipwhip.com.
+For developers maybe just trying out the service with their text enabled mobile
+number; we also encourage you to log in once and then save the sessionKey to a
+local database.
 
 Basic Usage
 ===========
@@ -58,8 +50,8 @@ Basic Usage
 
     {
       "response": {
-        "fingerprint": "4236521183",
-        "root": "327559093363723008",
+        "fingerprint": "4236521183", #fingerprint identifies the conversation.
+        "root": "327559093363723008", #messageId used for read & delete
         "tokens": [
         {
           "contact": 1989548603,
