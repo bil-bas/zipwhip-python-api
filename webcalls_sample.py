@@ -30,7 +30,7 @@ def tests():
 
     #pprint.pprint(zipwhipClient.log_in(phone_number="80094794447", password="&qYDgGyT[q[62T>TrG^]"))
 
-    pprint.pprint(zipwhipClient.user_get(session_key=sessionKey))
+    pprint.pprint(zipwhipClient.user_get(session=sessionKey))
 
     pprint.pprint(zipwhipClient.contact_list(sessionKey, 1, 2))
 
@@ -45,22 +45,19 @@ def tests():
 
     #pprint.pprint(zipwhipClient.conversation_delete(sessionKey, "4233621183"))
 
-    pprint.pprint(zipwhipClient.message_send(session_key=sessionKey,
-                                             recipient=friendNumber,
-                                             message_body="Hello World!\n\nSent via Zipwhip Api."))
+    pprint.pprint(zipwhipClient.message_send(session=sessionKey,
+                                             contacts=friendNumber,
+                                             body="Hello World!\n\nSent via Zipwhip Api."))
 
     pprint.pprint(zipwhipClient.message_list(sessionKey, 2, 0))
 
     pprint.pprint(zipwhipClient.message_read(sessionKey, messageId))
 
     #pprint.pprint(zipwhipClient.message_delete(sessionKey, messageId))
-
-
 # end tests()
 
 def main():
     # Run all tests associated with Parser
     tests()
-    #asdf
 # end main()
 main()
